@@ -10,117 +10,184 @@ pre: " <b> 4.1. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
 
-### Event Objectives
+#### Event Summary Report: “GenAI & Bedrock AI Services Workshop”
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+#### Event Objectives
 
-### Speakers
+This workshop helped me gain a clearer understanding of:
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- How **Foundation Models** are built and how they work
+- Common **Prompt Engineering** techniques
+- The architecture of **Retrieval-Augmented Generation (RAG)** – one of today’s most widely used AI approaches
+- AWS pretrained AI services
+- How to build an **AI Agent** using Amazon Bedrock AgentCore
 
-### Key Highlights
+---
 
-#### Identifying the drawbacks of legacy application architecture
+#### Speakers
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- **Lam Tuan Kiet** – FPT Software (previously worked in the banking industry)
+- **Danh Hoanh Hieu Nghi** – Bedrock AgentCore Specialist
+- **Dinh Le Hoang Anh** – AI/ML Specialist
 
-#### Transitioning to modern application architecture – Microservices
+---
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+#### Key Insights I Learned
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Foundation Models
 
-#### Domain-Driven Design (DDD)
+- Foundation Models are trained using **self-supervised learning**, meaning they learn from massive amounts of unlabeled data.
+- One model can perform many different tasks.
+- Amazon Bedrock provides powerful models such as **Titan, Luma, DeepSeek, and more**.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+---
 
-#### Event-Driven Architecture
+#### Prompt Engineering
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+I learned that writing prompts properly can significantly improve the model’s responses.
 
-#### Compute Evolution
+#### Main Techniques:
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+- **Zero-shot prompting**: asking a question without giving examples.
+- **Few-shot prompting**: providing example outputs so the model can follow a specific format.
+- **Chain of Thought (CoT)**: guiding the model to reason step by step, helping it produce more logical and accurate answers.
 
-#### Amazon Q Developer
+I found Chain of Thought especially interesting because it allows the model to explain how it arrived at its answer.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
-### Key Takeaways
+#### Retrieval-Augmented Generation (RAG)
 
-#### Design Mindset
+This was my favorite part because it is widely used in real-world applications, especially in banking.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### RAG consists of 3 main steps:
 
-#### Technical Architecture
+1. **Retrieval** – finding relevant information
+2. **Augmentation** – adding this information into the prompt
+3. **Generation** – producing the answer using a Large Language Model (LLM)
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+---
 
-#### Modernization Strategy
+#### Embedding
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- Converts text into vectors for semantic search
+- Amazon Titan Embedding supports many languages
 
-### Applying to Work
+---
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+#### How RAG Works
 
-### Event Experience
+1. Documents → chunking → embedding → vector store
+2. When a user asks a question:
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+   - The question is embedded
+   - Similar information is retrieved from the vector store
+   - The context is added to the prompt
+   * The model generates a more accurate answer
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+I realized that **the vector store is a crucial part** of the entire RAG pipeline.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+---
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### AWS AI Services Introduced in the Workshop
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+#### Amazon Rekognition
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+- Image and video analysis
+- Face and object detection
+- Used in security and camera systems
 
-#### Some event photos
-*Add your event photos here*  
+#### Amazon Translate
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+- Real-time and batch text translation
+
+#### Amazon Textract
+
+- Extracts text from invoices, forms, and documents
+
+#### Amazon Polly
+
+- Converts text into natural-sounding speech
+
+#### Amazon Comprehend
+
+- Language analysis: sentiment, key phrases, PII detection, etc.
+
+#### Amazon Kendra
+
+- Intelligent search engine with semantic search and RAG support
+
+#### Amazon Personalize
+
+- Personalized recommendations (similar to Netflix or Shopee)
+
+Additional tools include the **Lookout** services, **Transcribe**, and **Pipecat** for real-time AI interactions.
+
+---
+
+#### Amazon Bedrock AgentCore
+
+This part was presented by **Mr. Nghi**, and it helped me understand how to create a complete AI agent.
+
+#### Supported Ecosystem
+
+- LangGraph
+- LangChain
+- Strands Agent SDK
+
+#### Agent Development Workflow
+
+From **idea → development → real-world deployment**
+With a focus on:
+
+- Performance
+- Scalability
+- Security
+- Governance
+
+#### AgentCore Components
+
+- Runtime
+- Memory
+- Identity
+- Gateway
+- Code Interpreter
+- Browser Tool
+- Observability
+
+I think AgentCore is very powerful because it allows AI agents to run reliably in enterprise environments.
+
+---
+
+#### Key Takeaways
+
+- Foundation Models are extremely capable of handling multiple tasks
+- Prompt engineering is more important than I expected
+- RAG is ideal for building internal chatbots since it ensures factual and accurate answers
+- AWS AI services help reduce development time significantly
+- AgentCore supports building production-level AI agents
+
+---
+
+#### Applications to My Work and Studies
+
+- I can apply **Few-shot + CoT** when solving assignments or building AI applications
+- I want to try building a **RAG chatbot** to search documents for my class or workplace
+- Textract + Comprehend can help automate document processing tasks
+- AgentCore seems perfect for building an AI assistant for workflow automation
+
+---
+
+#### My Experience at the Workshop
+
+- I learned many practical AI concepts that I previously only saw in theory
+- The speakers explained everything clearly with real examples
+- I now understand how large companies implement AI for their customers
+- This workshop helped broaden my thinking and guide my future career direction in AI
+
+---
+
+#### Event Photos
+
+

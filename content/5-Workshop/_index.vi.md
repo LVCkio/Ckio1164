@@ -1,33 +1,35 @@
 ---
 title: "Workshop"
-date: "2025-09-10"
+date: 2025-09-10
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai ứng dụng Cloud-Native MiniMarket trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Workshop này cung cấp hướng dẫn toàn diện về việc chuyển đổi (Re-platforming) ứng dụng thương mại điện tử **MiniMarket** (phát triển trên nền tảng .NET Core) từ môi trường cục bộ lên hạ tầng đám mây AWS theo kiến trúc **Cloud Native**.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Chúng ta sẽ không chỉ đơn thuần là thuê một máy chủ ảo (EC2) để chạy code. Thay vào đó, chúng ta sẽ xây dựng một hệ thống phân tán, có khả năng mở rộng cao (Scalable), bảo mật (Secure) và vận hành tự động (Automated) dựa trên các dịch vụ được quản lý (Managed Services).
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Chúng ta sẽ thiết lập một kiến trúc Đa tầng (Multi-tier) bao gồm các thành phần cốt lõi:
 
+- **Compute**: Sử dụng AWS Elastic Beanstalk kết hợp với Docker để đơn giản hóa việc triển khai và quản lý ứng dụng, hỗ trợ Auto Scaling tự động dựa trên lưu lượng truy cập.
+- **Data & Caching**: Chuyển đổi từ SQL Server cục bộ sang Amazon RDS (đặt trong Private Subnet) để đảm bảo an toàn dữ liệu. Đồng thời, triển khai Amazon ElastiCache (Redis) để quản lý Session người dùng, đảm bảo hiệu năng cao cho ứng dụng.
+- **Networking & Security**: Sử dụng **VPC** cùng với **Public/Private Subnet** và **NAT Gateway** cho kết nối ra ngoài an toàn, và bảo vệ ứng dụng trước các cuộc tấn công bằng **AWS WAF** kết hợp **CloudFront**.
+- **DevOps**: Xây dựng quy trình **CI/CD** sử dụng **AWS CodePipeline** và **CodeBuild**, cho phép tự động hóa quy trình từ lúc commit code lên GitHub đến khi ứng dụng chạy trên môi trường Production
 #### Nội dung
 
 1. [Tổng quan về workshop](5.1-Workshop-overview/)
 2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+3. [Thiết lập hạ tầng mạng (VPC, NAT, Security Groups)](5.3-Network/)
+4. [Triển khai tầng dữ liệu (RDS & Redis)](5.4-Data/)
+5. [Triển khai ứng dụng với Elastic Beanstalk & Docker](5.5-App/)
+6. [Tự động hóa với CI/CD Pipeline](5.6-CICD/)
+7. [Tối ưu hóa và Bảo mật(S3, CloudFront, WAF)](5.7-Security/)
+8. [Giám sát (CloudWatch)](5.8-Monitoring/)
+9. [Dọn dẹp tài nguyên](5.9-Cleanup/)

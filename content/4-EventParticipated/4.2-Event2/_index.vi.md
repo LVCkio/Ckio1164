@@ -10,116 +10,141 @@ pre: " <b> 4.2. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
 
-### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+#### Event Summary Report: “Monitoring & Observability on AWS Workshop”
 
-### Danh Sách Diễn Giả
+#### 1. Mục tiêu của sự kiện
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+Buổi workshop giúp em hiểu rõ hơn về:
 
-### Nội Dung Nổi Bật
+- Sự khác nhau giữa **Monitoring** và **Observability**
+- Các dịch vụ theo dõi và giám sát hệ thống trên AWS
+- Cách sử dụng **Amazon CloudWatch** để theo dõi logs, metrics, alarms và dashboards
+- Giới thiệu về **AWS X-Ray** và cách công cụ này giúp phân tích hiệu năng microservices
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+---
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+#### 2. Giới thiệu về Monitoring và Observability
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Monitoring
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Là quá trình **theo dõi hệ thống** thông qua **logs, metrics, events,…**
+- Giúp biết được *tình trạng* của hệ thống trong thời gian thực
+- Hữu ích cho DevOps & SRE trong việc phát hiện sớm các vấn đề
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Observability
 
-#### Domain-Driven Design (DDD)
+- Mở rộng hơn Monitoring
+- Không chỉ theo dõi mà còn giúp **hiểu được nguyên nhân** khi hệ thống gặp sự cố
+- Tập trung vào việc trả lời: *“Chuyện gì đang xảy ra và tại sao?”*
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### Monitoring & Observability trên AWS
 
-#### Event-Driven Architecture
+Buổi workshop giới thiệu 3 dịch vụ chính:
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+- **Amazon CloudWatch** – logging, metrics, alarms, dashboards
+- **Amazon Managed Grafana** – phân tích và hiển thị dữ liệu trực quan
+- **AWS X-Ray** – distributed tracing dành cho microservices
 
-#### Compute Evolution
+---
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+#### 3. Amazon CloudWatch
 
-#### Amazon Q Developer
+#### 3.1 CloudWatch Overview
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+Em học được rằng CloudWatch không chỉ là công cụ giám sát mà còn cung cấp đầy đủ khả năng **observability**:
 
-### Những Gì Học Được
+- Theo dõi tài nguyên và ứng dụng **thời gian thực**
+- Thu thập **metrics và logs** để phân tích hành vi hệ thống
+- Cho phép tạo **alarms** và thiết lập phản hồi tự động
+- Hỗ trợ **tối ưu hóa vận hành và chi phí** thông qua dashboards
 
-#### Tư Duy Thiết Kế
+---
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+#### 3.2 CloudWatch Metrics
 
-#### Kiến Trúc Kỹ Thuật
+- Metrics là dữ liệu thể hiện **hiệu năng của hệ thống** (CPU, RAM, request count, error rate,…)
+*CloudWatch tự thu thập metrics mặc định từ dịch vụ AWS
+- Có thể tạo **custom metrics** hoặc thu thập từ hệ thống on-premises qua CloudWatch Agent
+- Dễ dàng tích hợp với các dịch vụ AWS khác như Lambda, ECS, API Gateway,…
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+---
 
-#### Chiến Lược Hiện Đại Hóa
+#### 3.3 CloudWatch Logs
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- Lưu trữ và phân tích logs ứng dụng
+- Hỗ trợ lọc, tìm kiếm, và tạo log-based metrics
+- Giúp phát hiện lỗi, theo dõi hành vi người dùng hoặc debug ứng dụng
 
-### Ứng Dụng Vào Công Việc
+---
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+#### 3.4 CloudWatch Alarms
 
-### Trải nghiệm trong event
+- Cho phép thiết lập cảnh báo dựa trên metrics hoặc logs
+- Khi điều kiện được kích hoạt, CloudWatch có thể:
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+  - Gửi thông báo qua SNS
+  - Tự động scale resources
+  - Kích hoạt Lambda để xử lý sự cố
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+---
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+#### 3.5 CloudWatch Dashboards
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+- Giao diện trực quan hóa hệ thống
+- Cho phép tạo charts, graphs để theo dõi hoạt động
+- Hữu ích cho DevOps trong quá trình giám sát và ra quyết định
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+---
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+#### 4.AWS X-Ray
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+AWS X-Ray được giới thiệu như một công cụ mạnh để quan sát hệ thống **microservices**.
+
+#### 4.1 Distributed Tracing
+
+- Theo dõi **toàn bộ đường đi của một request** từ đầu đến cuối
+- Tạo ra **service maps**, giúp nhìn thấy các kết nối gữa microservices
+- Cần tích hợp SDK vào ứng dụng để tạo trace ID cho từng request
+
+#### 4.2 Phân tích hiệu năng
+
+- X-Ray giúp phát hiện:
+
+  - Điểm gây chậm (bottlenecks)
+  - Dịch vụ nào tốn thời gian xử lý
+  - Phần nào của request gặp lỗi
+
+#### 4.3 Tích hợp với CloudWatch
+
+- Logs và metrics từ CloudWatch có thể kết hợp với X-Ray để cung cấp cái nhìn đầy đủ về hoạt động hệ thống
+- Giúp DevOps và Developer **khắc phục lỗi nhanh hơn**
+
+---
+
+#### 5.Những điều em rút ra được
+
+- Monitoring và Observability không giống nhau — Observability giúp hiểu sâu nguyên nhân vấn đề hơn
+- CloudWatch là công cụ rất mạnh vì hỗ trợ cả **metrics → logs → alarms → dashboards**
+- X-Ray giúp theo dõi request xuyên suốt microservices, rất hữu ích cho ứng dụng phức tạp
+- Việc tích hợp CloudWatch và X-Ray tạo nên bộ công cụ quan sát hệ thống toàn diện
+
+---
+
+#### 6. Ứng dụng vào học tập và công việc
+
+- Em có thể dùng CloudWatch để theo dõi các bài lab hoặc project chạy trên AWS
+- Với ứng dụng microservices, em muốn thử tích hợp X-Ray để xem đường đi của request
+- Dashboards giúp em dễ dàng trình bày trạng thái hệ thống trong các bài báo cáo
+- Alarms giúp tự động phát hiện lỗi mà không cần giám sát thủ công
+
+---
+
+#### 7.Trải nghiệm của em tại sự kiện
+
+- Em hiểu rõ hơn về cách giám sát hệ thống trong thực tế
+- Việc xem demo về alarms, metrics và X-Ray giúp em dễ hình dung hơn so với lý thuyết
+- Kiến thức này rất hữu ích cho định hướng DevOps hoặc Cloud Engineer mà em đang theo đuổi
+
+

@@ -13,7 +13,7 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Lâm Vĩnh Cường
+&emsp; **Full Name:** Lam Vinh Cuong
 
 &emsp; **Phone Number:** 0903563176  
 
@@ -28,7 +28,7 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 07/09/2025 to 25/12/2025
+&emsp; **Internship Duration:** From 08/09/2025 to 09/12/2025
 
 ![Your profile picture](/images/avatar.png)
 

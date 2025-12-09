@@ -10,117 +10,141 @@ pre: " <b> 4.2. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Event Summary Report: “Monitoring & Observability on AWS Workshop”
 
-### Event Objectives
+#### 1. Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+This workshop helped me gain a better understanding of:
 
-### Speakers
+- The difference between **Monitoring** and **Observability**
+- AWS services used for system monitoring and visibility
+- How to use **Amazon CloudWatch** to track logs, metrics, alarms, and dashboards
+- An introduction to **AWS X-Ray** and how it helps analyze microservices performance
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+---
 
-### Key Highlights
+#### 2. Introduction to Monitoring and Observability
 
-#### Identifying the drawbacks of legacy application architecture
+#### Monitoring
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- Monitoring is the process of **tracking the system** through logs, metrics, events, etc.
+- It shows the **current state** of the system in real time.
+- Useful for DevOps & SRE teams to detect issues early.
 
-#### Transitioning to modern application architecture – Microservices
+#### Observability
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Observability goes beyond monitoring.
+- It helps us **understand why** a problem happened, not just what happened.
+- Focuses on answering: *“What is happening inside the system and why?”*
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Monitoring & Observability on AWS
 
-#### Domain-Driven Design (DDD)
+The workshop introduced three main AWS tools:
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- **Amazon CloudWatch** – logs, metrics, alarms, dashboards
+- **Amazon Managed Grafana** – advanced visualization and analytics
+- **AWS X-Ray** – distributed tracing for microservices
 
-#### Event-Driven Architecture
+---
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+#### 3. Amazon CloudWatch
 
-#### Compute Evolution
+#### 3.1 CloudWatch Overview
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+I learned that CloudWatch is not just a monitoring tool, but a full **observability platform**:
 
-#### Amazon Q Developer
+- Monitors resources and applications in **real time**
+- Collects **metrics and logs** for deeper analysis
+- Supports **alarms and automated responses**, helping DevOps & SRE workflows
+- Provides dashboards for operational insights and cost optimization
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
-### Key Takeaways
+#### 3.2 CloudWatch Metrics
 
-#### Design Mindset
+- A metric is data that represents the **performance of the system** (CPU, RAM, latency, error rate, etc.)
+- CloudWatch collects default AWS metrics automatically
+- We can create **custom metrics** or collect data from on-premises systems using the CloudWatch Agent
+- Metrics integrate easily with other AWS services (Lambda, ECS, API Gateway, etc.)
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+---
 
-#### Technical Architecture
+#### 3.3 CloudWatch Logs
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- Stores and analyzes application logs
+- Allows searching, filtering, and creating log-based metrics
+- Helps detect errors, track user behavior, and debug applications
 
-#### Modernization Strategy
+---
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+#### 3.4 CloudWatch Alarms
 
-### Applying to Work
+- Used to trigger alerts based on metric thresholds
+- When triggered, alarms can:
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+  - Send notifications via SNS
+  - Automatically scale resources
+  - Trigger Lambda functions to handle incidents
 
-### Event Experience
+---
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+#### 3.5 CloudWatch Dashboards
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Provides a visual view of system health
+- Supports custom charts and graphs
+- Useful for DevOps teams to monitor systems at a glance
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+---
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### 4. AWS X-Ray
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+AWS X-Ray was introduced as a powerful tool for observing and debugging **microservices-based systems**.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+#### 4.1 Distributed Tracing
 
-#### Some event photos
-*Add your event photos here*  
+- Tracks **an entire request path** end-to-end
+- Generates **service maps** to visualize how microservices interact
+- Requires integrating the X-Ray SDK to produce trace IDs
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+#### 4.2 Performance Analysis
+
+- Helps identify:
+
+  - Performance bottlenecks
+  - Slow services
+  - Failures inside microservice calls
+
+#### 4.3 Integration with CloudWatch
+
+- X-Ray traces can be combined with CloudWatch metrics and logs
+- Provides a more complete picture of system behavior
+- Helps developers fix issues faster
+
+---
+
+#### 5. Key Takeaways
+
+- Monitoring and observability are different—observability helps understand *why* issues happen
+- CloudWatch is very powerful because it supports **metrics → logs → alarms → dashboards**
+- X-Ray is extremely useful for monitoring microservices and request flows
+- Combining CloudWatch and X-Ray creates a strong observability stack for any application
+
+---
+
+#### 6. Applications to Work and Study
+
+- I can use CloudWatch to monitor my AWS lab projects
+- For microservices applications, I want to try integrating X-Ray to visualize request flows
+- Dashboards can help me present system status in reports
+- Alarms allow automated detection of issues without manual monitoring
+
+---
+
+#### 7. My Experience at the Event
+
+- I learned practical system monitoring techniques that I had only seen in theory before
+- The demos of metrics, alarms, and X-Ray made everything easier to understand
+- This knowledge is very useful if I want to pursue DevOps or Cloud Engineering
+- The workshop helped broaden my understanding of system observability
+
+

@@ -1,19 +1,28 @@
 ---
-title : "Giới thiệu"
-date :  "2025-09-10" 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Giới thiệu"
+date: 2025-09-10
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+#### Giới thiệu 
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+- MiniMarket là một ứng dụng thương mại điện tử được xây dựng trên nền tảng .NET Core, áp dụng kiến trúc 3-lớp (3-Tier Architecture) hiện đại. Mục tiêu của Workshop này là chuyển đổi ứng dụng từ môi trường On-premise lên hạ tầng đám mây AWS (Cloud Native Migration) đảm bảo các tiêu chí của AWS Well-Architected Framework: Bảo mật, Tin cậy, Hiệu năng cao và Tối ưu chi phí
 
 #### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+Kiến trúc giải pháp:
+
+- Compute: Sử dụng AWS Elastic Beanstalk (nền tảng Docker) để đơn giản hóa việc triển khai, quản lý hạ tầng và Auto Scaling
+- Database: Amazon RDS for SQL Server được triển khai trong Private Subnet để đảm bảo an toàn dữ liệu
+- Caching: Amazon ElastiCache (Redis) giúp lưu trữ Session người dùng và giảm tải truy vấn cho Database, tăng tốc độ phản hồi
+- Network & Security (Mạng & Bảo mật):
+  - VPC: Thiết kế theo mô hình Public/Private Subnet kết hợp NAT Gateway
+  - Bảo mật lớp ứng dụng: Sử dụng AWS WAF kết hợp Amazon CloudFront để chống tấn công Web và phân phối nội dung toàn cầu
+- Storage: Amazon S3 dùng để lưu trữ và phục vụ các static assets (hình ảnh sản phẩm) với độ bền cao
+- DevOps: Quy trình CI/CD tự động hóa hoàn toàn với AWS CodePipeline và CodeBuild
+- Monitoring: Amazon CloudWatch để theo dõi sức khỏe hệ thống (CPU, Network) và gửi cảnh báo
+
+
+![overview](/images/5-Workshop/5.1-Workshop-overview/project_architecture_3.1.png)
