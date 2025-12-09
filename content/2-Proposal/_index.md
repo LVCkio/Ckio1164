@@ -18,7 +18,7 @@ The group's solution is to build a comprehensive e-commerce and operations manag
 
 Business benefits are immediate, including automated inventory management (reducing loss) and opening a new online revenue channel. Regarding investment, infrastructure costs in the first 12 months are nearly zero by leveraging AWS Free Tier (e.g., RDS Express Edition, EC2 t3.micro). Long-term operating costs (after Free Tier) are also very practical, estimated at around 138.06 USD/month for the entire system. With minimal initial investment and the ability to directly solve problems causing revenue loss, ROI is very high and almost instant.
 
-The project is proposed to be implemented in 11 weeks, divided into 4 main phases: (1) Foundation & Architecture, (2) Core Feature Development, (3) AWS Integration & CI/CD, and (4) Finalization & Deployment. Expected results are measured by specific success metrics: reduce inventory errors by 90%, reduce checkout time by 50%, and achieve 20% revenue from online channels in the first 6 months. This solution not only solves immediate problems but also provides mini-markets with a scalable platform for data-driven decision-making in the future.
+The project is proposed to be implemented in 12 weeks, divided into 4 main phases: (1) Foundation & Architecture, (2) Core Feature Development, (3) AWS Integration & CI/CD, and (4) Finalization & Deployment. Expected results are measured by specific success metrics: reduce inventory errors by 90%, reduce checkout time by 50%, and achieve 20% revenue from online channels in the first 6 months. This solution not only solves immediate problems but also provides mini-markets with a scalable platform for data-driven decision-making in the future.
 
 ### 2. Problem Statement
 
@@ -72,15 +72,15 @@ _Data Flow_
 ### 4. Technical Implementation
 
 _Implementation Stages_  
-The project will be divided into 4 main stages, lasting 11 weeks to ensure progress and quality:
+The project will be divided into 4 main stages, lasting 12 weeks to ensure progress and quality:
 
 1. _Building Technical Foundation_: Focus on building the technical foundation, including finalizing the data model for main entities, setting up .NET 3-tier solution structure (Domain, Application, Persistence, WebShop), initializing repository on Github, and researching AWS services. (Weeks 1-4)
 
-2. _Building Core Features_: Complete Persistence Layer (Repositories, Unit of Work) and Application Layer (Services) for main tasks such as managing products, users, and orders. Simultaneously, WebShop Layer (Controllers, Views) will be built for login flows, shopping cart, payment, and start writing Unit Tests for Services. (Weeks 5-7)
+2. _Building Core Features_: Complete Persistence Layer (Repositories, Unit of Work) and Application Layer (Services) for main tasks such as managing products, users, and orders. Simultaneously, WebShop Layer (Controllers, Views) will be built for login flows, shopping cart, payment, and start writing Unit Tests for Services. (Weeks 5-8)
 
-3. _Integrating AWS Services_: Integrate Amazon S3 for product images, ElastiCache (Redis) for caching. The group will also complete the CI/CD Pipeline to automatically deploy to the Staging environment on Elastic Beanstalk and perform Integration Testing. (Weeks 8-10)
+3. _Cloud Migration Preparation_: Group refactors the source code for Cloud compatibility (migrating configurations to Environment Variables), drafts build scripts (buildspec.yml), and cleans up the project to prepare for the CI/CD process. (Weeks 9-11)
 
-4. _Finalization and Deployment_: Configure security services such as CloudFront, WAF, and Route 53. Then, deploy version 1.0 to Elastic Beanstalk, perform final UAT, and set up basic monitoring via CloudWatch. (Week 11)
+4. _Finalization and Deployment_: Group provisions all resources on AWS (Elastic Beanstalk, RDS, ElastiCache, S3). Security and performance services (CloudFront, WAF) are configured, and the automated CI/CD pipeline is activated. Finally, UAT is performed, and system monitoring is established via CloudWatch. (Week 12)
 
 _Technical Requirements_
 
@@ -106,15 +106,15 @@ Apply fully automated CI/CD process. The process is automatically triggered when
 
 ### 5. Roadmap & Milestones
 
-The project is planned to be executed in 11 weeks, divided into 4 main stages. This schedule ensures time for development, integration, and thorough testing.
+The project is planned to be executed in 12 weeks, divided into 4 main stages. This schedule ensures time for development, integration, and thorough testing.
 
 Phase 1 (Weeks 1 - 4): This stage focuses on building the technical foundation, including finalizing data models, setting up .NET 3-tier Solution Architecture, initializing Github Repository, and researching AWS services. The milestone of this stage is Solution Architecture and Repository established, along with AWS environment (VPC, Subnets).
 
-Phase 2 (Weeks 5 - 7): After Phase 1 is complete, the group will build core features, complete Persistence and Application Layers (Product Management, Orders) and basic feature flows on WebShop (Auth, Cart). The milestone is main feature flows (Login, View Product, Cart, Payment) operating stably locally, and Unit Tests for Services.
+Phase 2 (Weeks 5 - 8): After Phase 1 is complete, the group will build core features, complete Persistence and Application Layers (Product Management, Orders) and basic feature flows on WebShop (Auth, Cart). The milestone is main feature flows (Login, View Product, Cart, Payment) operating stably locally, and Unit Tests for Services.
 
-Phase 3 (Weeks 8 - 10): Dependent on Phase 2, this stage will integrate AWS services like Amazon S3 for product images and ElastiCache (Redis) for caching. The milestone is CI/CD pipeline operational, successfully automatically deploying to Staging environment on Elastic Beanstalk and Integration Testing completed.
+Phase 3 (Weeks 9 - 11): This phase prepares for cloud migration. The group optimizes the source code (Refactoring), configures Environment Variables, drafts automation scripts (Buildspec), and cleans up the project for the CI/CD process.
 
-Phase 4 (Week 11): This final stage focuses on finalization and deployment, dependent on the stable Staging build from Phase 3. The group will configure security services (CloudFront, WAF, Route 53). The milestone is Version 1.0 successfully deployed to Production environment (Elastic Beanstalk), final User Acceptance Testing completed, and system monitored via CloudWatch.
+Phase 4 (Week 12): This final stage focuses on finalization and deployment, dependent on the stable Staging build from Phase 3. The group will configure security services (CloudFront, WAF, Route 53). The milestone is Version 1.0 successfully deployed to Production environment (Elastic Beanstalk), final User Acceptance Testing completed, and system monitored via CloudWatch.
 
 ### 6. Budget Estimation
 
@@ -155,3 +155,7 @@ Some potential risks lie in three areas: Technical, Business, and Operational. T
 The goal of this solution is to directly address the problems stated in the Problem Statement section. Regarding business metrics, the group expects to reduce inventory management errors by 90% (compared to Excel/notebooks), reduce checkout time at the counter by 50%, and achieve at least 20% new revenue from online channels in the first 6 months. Regarding technical metrics, the goal is to maintain 99.9% uptime, ensure average page load time under 2 seconds (thanks to CloudFront and ElastiCache), and stable deployment frequency via CI/CD pipeline.
 
 Benefits are expected to increase over time. In the short-term (0-6 months), mini-market owners will see immediately improved user experience and significantly improved operations (automated inventory management). In the medium-term (6-18 months), value comes from market expansion (reaching online customers) and starting to collect valuable business data. Long-term value and strategic capabilities gained are the ability to make data-driven decisions (e.g., knowing which products sell well) and easy system scalability (adding more new stores) thanks to Solution Architecture on Elastic Beanstalk and RDS.
+
+### [Proposal PDF Version](/attachments/MiniMarket_AWS_ProjectPlanen-US.pdf)
+
+### [Proposal DOCX Version](/attachments/MiniMarket_AWS_ProjectPlanen-US.docx)

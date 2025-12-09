@@ -18,7 +18,7 @@ Giải pháp của nhóm là xây dựng một nền tảng e-commerce và quả
 
 Business benefits là ngay lập tức, bao gồm tự động hóa quản lý kho (giảm thất thoát) và mở ra một kênh doanh thu online mới. Về investment, chi phí hạ tầng trong 12 tháng đầu tiên là gần như bằng 0 nhờ tận dụng AWS Free Tier (ví dụ: RDS Express Edition, EC2 t3.micro). Chi phí vận hành dài hạn (sau Free Tier) cũng rất thực tế, ước tính chỉ khoảng 138.06 USD/tháng cho toàn bộ hệ thống. Với investment ban đầu tối thiểu và khả năng giải quyết trực tiếp các vấn đề gây thất thoát doanh thu, ROI là rất cao và gần như tức thì.
 
-Dự án được đề xuất triển khai trong 11 tuần, chia thành 4 phases (giai đoạn) chính: (1) Foundation & Architecture, (2) Core Feature Development, (3) AWS Integration & CI/CD, và (4) Finalization & Deployment. Kết quả mong đợi được đo lường bằng các success metrics cụ thể: giảm 90% sai sót kho vận, giảm 50% thời gian thanh toán, và đạt 20% doanh thu từ kênh online trong 6 tháng đầu. Giải pháp này không chỉ giải quyết các vấn đề trước mắt mà còn cung cấp cho mini-market một nền tảng scalable để đưa ra quyết định dựa trên dữ liệu trong tương lai.
+Dự án được đề xuất triển khai trong 12 tuần, chia thành 4 phases (giai đoạn) chính: (1) Foundation & Architecture, (2) Core Feature Development, (3) AWS Integration & CI/CD, và (4) Finalization & Deployment. Kết quả mong đợi được đo lường bằng các success metrics cụ thể: giảm 90% sai sót kho vận, giảm 50% thời gian thanh toán, và đạt 20% doanh thu từ kênh online trong 6 tháng đầu. Giải pháp này không chỉ giải quyết các vấn đề trước mắt mà còn cung cấp cho mini-market một nền tảng scalable để đưa ra quyết định dựa trên dữ liệu trong tương lai.
 
 ### 2. Tuyên bố vấn đề
 
@@ -72,15 +72,15 @@ _Luồng dữ liệu_
 ### 4. Triển khai kỹ thuật
 
 _Các giai đoạn triển khai_  
-Dự án sẽ được chia thành 4 giai đoạn chính, kéo dài trong 11 tuần để đảm bảo tiến độ và chất lượng:
+Dự án sẽ được chia thành 4 giai đoạn chính, kéo dài trong 12 tuần để đảm bảo tiến độ và chất lượng:
 
 1. _Xây dựng nền móng kỹ thuật_: Tập trung xây dựng nền móng kỹ thuật, bao gồm việc chốt mô hình dữ liệu cho các thực thể chính, thiết lập cấu trúc solution .NET 3-lớp (Domain, Application, Persistence, WebShop), khởi tạo repository trên Github, và tìm hiểu về các dịch vụ của AWS. (Tuần 1-4)
 
-2. _Xây dựng các tính năng cốt lõi_: Hoàn thiện Lớp Persistence (Repositories, Unit of Work) và Lớp Application (Services) cho các nhiệm vụ chính như quản lý sản phẩm, người dùng và đơn hàng. Song song đó, Lớp WebShop (Controllers, Views) sẽ được xây dựng cho các luồng đăng nhập, giỏ hàng, thanh toán và bắt đầu viết Unit Test cho Services. (Tuần 5-7)
+2. _Xây dựng các tính năng cốt lõi_: Hoàn thiện Lớp Persistence (Repositories, Unit of Work) và Lớp Application (Services) cho các nhiệm vụ chính như quản lý sản phẩm, người dùng và đơn hàng. Song song đó, Lớp WebShop (Controllers, Views) sẽ được xây dựng cho các luồng đăng nhập, giỏ hàng, thanh toán và bắt đầu viết Unit Test cho Services. (Tuần 5-8)
 
-3. _Tích hợp các dịch vụ của AWS_: Tích hợp Amazon S3 cho ảnh sản phẩm, ElastiCache (Redis) để cache. Nhóm cũng sẽ hoàn thiện CI/CD Pipeline để tự động deploy lên môi trường Staging trên Elastic Beanstalk và thực hiện Integration Testing. (Tuần 8-10)
+3. _Chuẩn bị di chuyển lên Cloud_: Nhóm thực hiện tái cấu trúc (Refactor) mã nguồn để tương thích với môi trường Cloud (chuyển đổi cấu hình sang Biến môi trường), viết các kịch bản build (buildspec.yml) và sẵn sàng cho quy trình CI/CD. (Tuần 9-11)
 
-4. _Hoàn thiện và triển khai_: Cấu hình các dịch vụ bảo mật như CloudFront, WAF, và Route 53. Sau đó, triển khai phiên bản 1.0 lên Elastic Beanstalk, thực hiện UAT cuối cùng, và thiết lập giám sát cơ bản qua CloudWatch. (Tuần 11)
+4. _Triển khai hạ tầng & Hoàn thiện_: Nhóm thực hiện khởi tạo toàn bộ tài nguyên trên AWS (Elastic Beanstalk, RDS, ElastiCache, S3). Cấu hình các dịch vụ bảo mật và hiệu năng (CloudFront, WAF) và kích hoạt quy trình CI/CD tự động. Cuối cùng là thực hiện UAT và giám sát hệ thống qua CloudWatch. (Tuần 12)
 
 _Yêu cầu kỹ thuật_
 
@@ -106,15 +106,15 @@ _Kế hoạch triển khai_
 
 ### 5. Lộ trình & Mốc triển khai
 
-Dự án được lên kế hoạch thực hiện trong 11 tuần, chia thành 4 giai đoạn chính. Tiến độ này đảm bảo thời gian cho việc phát triển, integration, và testing kỹ lưỡng.
+Dự án được lên kế hoạch thực hiện trong 12 tuần, chia thành 4 giai đoạn chính. Tiến độ này đảm bảo thời gian cho việc phát triển, integration, và testing kỹ lưỡng.
 
 Phase 1 (Tuần 1 - 4): Giai đoạn này tập trung xây dựng nền tảng kỹ thuật, bao gồm việc chốt data models, thiết lập Solution Architecture .NET 3-lớp, khởi tạo Github Repository, và tìm hiểu về các dịch vụ AWS. Milestone của giai đoạn này là Solution Architecture và Repository được thiết lập, cùng với môi trường AWS (VPC, Subnets).
 
-Phase 2 (Tuần 5 - 7): Sau khi Phase 1 hoàn thành, nhóm sẽ xây dựng các core features, hoàn thiện Lớp Persistence và Application (Quản lý Sản phẩm, Đơn hàng) và các feature flows cơ bản trên WebShop (Auth, Giỏ hàng). Milestone là các feature flows chính (Đăng nhập, Xem sản phẩm, Giỏ hàng, Thanh toán) hoạt động ổn định trên local, và Unit Test cho Services.
+Phase 2 (Tuần 5 - 8): Sau khi Phase 1 hoàn thành, nhóm sẽ xây dựng các core features, hoàn thiện Lớp Persistence và Application (Quản lý Sản phẩm, Đơn hàng) và các feature flows cơ bản trên WebShop (Auth, Giỏ hàng). Milestone là các feature flows chính (Đăng nhập, Xem sản phẩm, Giỏ hàng, Thanh toán) hoạt động ổn định trên local, và Unit Test cho Services.
 
-Phase 3 (Tuần 8 - 10): Phụ thuộc vào Phase 2, giai đoạn này sẽ integrate các dịch vụ AWS như Amazon S3 cho ảnh sản phẩm và ElastiCache (Redis) để cache. Milestone là CI/CD pipeline hoạt động, tự động deploy lên Staging environment trên Elastic Beanstalk thành công và Integration Testing hoàn tất.
+Phase 3 (Tuần 9 - 11): Giai đoạn này chuẩn bị cho việc lên mây. Nhóm thực hiện tối ưu hóa mã nguồn (Refactoring), cấu hình Biến môi trường (Environment Variables), viết kịch bản tự động hóa (Buildspec) và dọn dẹp project để sẵn sàng cho quy trình CI/CD.
 
-Phase 4 (Tuần 11): Giai đoạn cuối cùng này tập trung vào hoàn thiện và triển khai, phụ thuộc vào bản build Staging ổn định từ Phase 3. Nhóm sẽ cấu hình các dịch vụ bảo mật (CloudFront, WAF, Route 53). Milestone là Version 1.0 được triển khai thành công lên Production environment (Elastic Beanstalk), User Acceptance Testing cuối cùng hoàn tất, và hệ thống được monitoring qua CloudWatch.
+Phase 4 (Tuần 12): Giai đoạn cuối cùng này tập trung vào hoàn thiện và triển khai, phụ thuộc vào bản build Staging ổn định từ Phase 3. Nhóm sẽ cấu hình các dịch vụ bảo mật (CloudFront, WAF, Route 53). Milestone là Version 1.0 được triển khai thành công lên Production environment (Elastic Beanstalk), User Acceptance Testing cuối cùng hoàn tất, và hệ thống được monitoring qua CloudWatch.
 
 ### 6. Ước tính ngân sách
 
@@ -156,5 +156,6 @@ Mục tiêu của giải pháp này là giải quyết trực tiếp các vấn 
 
 Các benefits được kỳ vọng là sẽ gia tăng theo thời gian. Trong short-term (0-6 tháng), chủ mini-market sẽ thấy trải nghiệm người dùng được cải thiện ngay lập tức và phần vận hành được cải thiện đáng kể (quản lý kho tự động). Trong medium-term (6-18 tháng), giá trị đến từ việc mở rộng thị trường (tiếp cận khách hàng online) và bắt đầu thu thập được business data có giá trị. Long-term value và strategic capabilities thu được chính là khả năng đưa ra quyết định dựa trên dữ liệu (data-driven decisions) (ví dụ: biết sản phẩm nào bán chạy) và khả năng scale hệ thống dễ dàng (thêm nhiều cửa hàng mới) nhờ Solution Architecture trên Elastic Beanstalk và RDS.
 
-### 9. File Word đính kèm
-[Mini-Market AWS Project Plan (DOCX)](/attachments/MiniMarket_AWS_ProjectPlan.docx)
+### [Proposal bản PDF](/attachments/MiniMarket_AWS_ProjectPlan.pdf)
+
+### [Proposal bản DOCX](/attachments/MiniMarket_AWS_ProjectPlan.docx)
