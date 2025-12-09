@@ -1,58 +1,38 @@
 ---
 title: "Worklog Tuần 12"
-date: "2025-09-10"
+date: 2025-09-10
 weight: 2
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-### Mục tiêu tuần 12:
+### **Mục tiêu Tuần 12:**
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Triển khai và kiểm tra độ ổn định của dự án trên **AWS Cloud**
+- Tự động hóa CI/CD bằng **AWS CodePipeline**
+- Tối ưu phân phối tài nguyên tĩnh bằng **S3** và **CloudFront**
+- Triển khai bộ nhớ đệm phân tán với **Amazon ElastiCache (Redis)**
+- Bắt đầu khóa đào tạo về **AWS Cloud Architecture**
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### **Các nhiệm vụ cần thực hiện trong tuần:**
 
-### Kết quả đạt được tuần 12:
+| Ngày | Nhiệm vụ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | ------------------ |
+| 2    | - To be continued...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 24/11/2025   | 24/11/2025       |                    |
+| 3    | - **Triển khai & Kiểm thử trên AWS Cloud** <br>&emsp; + Kiểm thử triển khai code dự án lên **AWS Cloud** để đánh giá tính ổn định <br>&emsp;&emsp; - Kiểm thử tính năng: **thêm sản phẩm vào giỏ hàng** và **thanh toán** <br>&emsp; + **Cấu hình dịch vụ** để đảm bảo tương thích với **code nhóm** <br> - Tham gia khóa học **AWS Cloud Solutions Architect** trên Coursera <br>&emsp; + Bắt đầu Course 1: **AWS Cloud Technical Essentials** <br>&emsp;&emsp; - Hoàn thành nội dung **Tuần 1: Giới thiệu AWS và Bảo mật** <br>&emsp;&emsp; - Bao gồm: **What is AWS?**, **AWS Global Infrastructure** (Video & Reading 1.3) | 25/11/2025   | 25/11/2025       |                    |
+| 4    | - **Triển khai CI/CD trên AWS Cloud** <br>&emsp; + Cấu hình **AWS CodePipeline** cho quy trình triển khai tự động <br>&emsp;&emsp; - Thiết lập **CodeBuild** và **CodeDeploy** <br>&emsp;&emsp; - Tích hợp với **GitHub**: khi push code sẽ tự động triển khai lên **AWS Cloud**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 26/11/2025   | 26/11/2025       |                    |
+| 5    | - **Lưu trữ tĩnh & Triển khai CDN** <br>&emsp; + Khởi tạo **S3 Bucket** và di chuyển tài nguyên tĩnh (hình ảnh) <br>&emsp; + Cấu hình **CloudFront (CDN)** để phân phối nội dung từ S3 <br>&emsp; + Thiết lập các chính sách bảo mật (**OAC**, Bucket Policies)                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 27/11/2025   | 27/11/2025       |                    |
+| 6    | - **Triển khai bộ nhớ đệm phân tán** <br>&emsp; + Khởi tạo cụm **Amazon ElastiCache (Redis)** <br>&emsp; + Cấu hình ứng dụng .NET Core sử dụng Redis cho **Session Storage**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 28/11/2025   | 28/11/2025       |                    |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### **Kết quả đạt được trong Tuần 12:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+- Triển khai thành công dự án lên **AWS Cloud** và kiểm chứng hoạt động ổn định  
+- Thiết lập hoàn chỉnh pipeline CI/CD với **CodePipeline**, **CodeBuild**, **CodeDeploy**  
+- Tích hợp **S3** và **CloudFront** để lưu trữ & phân phối tài nguyên tĩnh  
+- Triển khai **Amazon ElastiCache (Redis)** để xử lý session phân tán  
+- Hoàn thành các nội dung mở đầu của khóa học AWS: **AWS Global Infrastructure**
 

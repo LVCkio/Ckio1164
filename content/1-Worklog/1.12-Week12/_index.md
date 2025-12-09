@@ -1,57 +1,33 @@
 ---
 title: "Week 12 Worklog"
-date: "2025-09-10"
+date: 2025-09-10
 weight: 2
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 12 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Deploy and verify project stability on **AWS Cloud**
+- Implement CI/CD automation using **AWS CodePipeline**
+- Optimize static asset delivery using **S3** and **CloudFront**
+- Implement distributed caching using **Amazon ElastiCache (Redis)**
+- Begin **AWS Cloud Architecture** training
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Start Date | Completion Date | Reference Material |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
+| 2   | - To be continued...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 11/24/2025 | 11/24/2025      |                    |
+| 3   | - **AWS Cloud** Deployment and Testing <br>&emsp; + Test deploy project code on **AWS Cloud** to verify stability <br>&emsp;&emsp; - Verify functions: **add items to cart** and **payment** <br>&emsp; + **Configure services** to ensure compatibility with **group code** <br> - Enrolled in **AWS Cloud Solutions Architect** specialization on Coursera <br>&emsp; + Started Course 1: **AWS Cloud Technical Essentials** <br>&emsp;&emsp; - Completed **Week 1: AWS Overview and Security** introductory materials <br>&emsp;&emsp; - Covered **What is AWS?** and **AWS Global Infrastructure** (Video & Reading 1.3) | 11/25/2025 | 11/25/2025      |                    |
+| 4   | - **AWS Cloud** CI/CD Implementation <br>&emsp; + Configure **AWS CodePipeline** for automated deployment <br>&emsp;&emsp; - Set up **CodeBuild** and **CodeDeploy** services <br>&emsp;&emsp; - Configure **GitHub** integration: code push triggers automatic deployment to **AWS Cloud**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 11/26/2025 | 11/26/2025      |                    |
+| 5   | - **Static Storage & CDN Implementation** <br>&emsp; + Initialize **S3 Bucket** and migrate static assets (images) <br>&emsp; + Configure **CloudFront** (CDN) to serve content from S3 <br>&emsp; + Implement security controls (**OAC** and Bucket Policies)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 11/27/2025 | 11/27/2025      |                    |
+| 6   | - **Distributed Cache Implementation** <br>&emsp; + Deploy **Amazon ElastiCache (Redis)** cluster <br>&emsp; + Configure .NET Core application to use Redis for **Session Storage** integration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 11/28/2025 | 11/28/2025      |                    |
 
 ### Week 12 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Validated project deployment on **AWS Cloud**
+- Established CI/CD pipeline using **CodePipeline**, **CodeBuild**, and **CodeDeploy**
+- Successfully integrated **S3** and **CloudFront** for static asset storage and delivery
+- Implemented **Amazon ElastiCache** to handle distributed sessions
+- Initiated AWS training: Completed introductory modules on **AWS Global Infrastructure**

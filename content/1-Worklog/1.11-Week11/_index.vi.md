@@ -5,55 +5,37 @@ weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice warning %}} 
+⚠️ **Lưu ý:** Thông tin dưới đây chỉ mang tính tham khảo. Vui lòng **không sao chép nguyên văn** cho báo cáo của bạn, bao gồm cả phần cảnh báo này.
 {{% /notice %}}
 
+### **Mục tiêu Tuần 11:**
 
-### Mục tiêu tuần 11:
+* Kết nối và làm quen với các thành viên trong chương trình First Cloud Journey.  
+* Hiểu các dịch vụ AWS cơ bản, cách sử dụng AWS Console & CLI.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### **Các nhiệm vụ cần thực hiện trong tuần:**
 
+| Ngày | Nhiệm vụ                                                                                                                                                                                       | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo                        |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | ----------------------------------------- |
+| 2    | - Thiết kế toàn bộ kiến trúc AWS cho dự án mini-market                                                                                                  | 17/11/2025   | 17/11/2025       |                                           |
+| 3    | - Triển khai backend/API lên EC2 hoặc ECS                                                                                                                | 18/11/2025   | 18/11/2025       | <https://cloudjourney.awsstudygroup.com/> |
+| 4    | - Thiết lập cơ sở dữ liệu (RDS hoặc DynamoDB) và kết nối API                                                                                            | 19/11/2025   | 19/11/2025       | <https://cloudjourney.awsstudygroup.com/> |
+| 5    | - Tích hợp S3 <br>&emsp; + CloudFront <br>&emsp; + IAM <br>&emsp; + CloudWatch                                                                          | 20/11/2025   | 20/11/2025       | <https://cloudjourney.awsstudygroup.com/> |
+| 6    | - Kiểm thử hệ thống <br>&emsp; + sửa lỗi <br>&emsp; + viết tài liệu kỹ thuật                                                                            | 21/11/2025   | 21/11/2025       | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 11:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### **Kết quả đạt được trong Tuần 11:**
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+* Hoàn thành thiết kế kiến trúc AWS tổng thể cho dự án mini-market.  
+* Triển khai thành công backend/API lên hạ tầng cloud.  
+* Thiết lập lớp cơ sở dữ liệu và kết nối bảo mật với API.  
+* Tích hợp S3 + CloudFront để lưu trữ và tối ưu hiệu suất phân phối nội dung.  
+* Thêm CloudWatch để theo dõi logs và metrics của hệ thống.  
+* Kiểm thử, sửa lỗi và đảm bảo hệ thống vận hành ổn định.  
+* Hoàn thiện tài liệu kỹ thuật phục vụ báo cáo cuối kỳ.
 

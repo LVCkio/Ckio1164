@@ -5,55 +5,43 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice warning %}} 
+⚠️ **Lưu ý:** Thông tin dưới đây chỉ mang tính tham khảo. Vui lòng **không sao chép nguyên văn** cho báo cáo của bạn, bao gồm cả phần cảnh báo này.
 {{% /notice %}}
 
+### **Mục tiêu Tuần 4:**
 
-### Mục tiêu tuần 4:
+* Làm quen với AWS Cloud9 như một IDE chạy trực tiếp trên cloud.  
+* Học cách host website tĩnh bằng Amazon S3.  
+* Hiểu và thực hành sử dụng Amazon RDS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### **Các nhiệm vụ cần thực hiện trong tuần:**
 
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| ---- | -------- | ------------ | ---------------- | ------------------ |
+| 2 | - Giới thiệu AWS Cloud9 <br> - Tạo và cấu hình môi trường phát triển trên cloud | 29/09/2025 | 29/09/2025 | |
+| 3 | - Học Amazon S3 <br>&emsp; + Bucket <br>&emsp; + Objects <br>&emsp; + Storage Classes <br> - Tìm hiểu bảo mật & phân quyền S3 | 30/09/2025 | 30/09/2025 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - Host website tĩnh trên S3 <br> - Cấu hình Bucket Policy cho public access | 01/10/2025 | 01/10/2025 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - Tìm hiểu nền tảng Amazon RDS: <br>&emsp; + Engine <br>&emsp; + Backup <br>&emsp; + High Availability | 02/10/2025 | 02/10/2025 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | - **Thực hành:** <br>&emsp; + Tạo RDS instance <br>&emsp; + Kết nối RDS từ EC2 <br>&emsp; + Cấu hình Security Groups | 03/10/2025 | 03/10/2025 | <https://cloudjourney.awsstudygroup.com/> |
 
-### Kết quả đạt được tuần 4:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### **Kết quả đạt được trong Tuần 4:**
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+* Sử dụng AWS Cloud9 để lập trình trực tiếp trên môi trường cloud.  
+* Nắm vững các thành phần quan trọng của S3:  
+  - Bucket  
+  - Objects  
+  - Storage Classes  
+  - Bucket Policies  
+* Triển khai thành công website tĩnh trên Amazon S3.  
+* Hiểu các khái niệm cơ bản của Amazon RDS, bao gồm:  
+  - Database Engine  
+  - Automated Backup  
+  - Multi-AZ High Availability  
+* Kết nối EC2 với RDS thông qua cấu hình Security Group đúng chuẩn.
 

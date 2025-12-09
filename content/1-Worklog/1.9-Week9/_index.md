@@ -26,32 +26,17 @@ pre: " <b> 1.9. </b> "
 
 
 ### Week 9 Achievements:
+- Acquired foundational knowledge of:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Migration Overview
 
-* Successfully created and configured an AWS Free Tier account.
+VM Import/Export
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+AWS DMS
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+AWS SCT
 
-* Used AWS CLI to perform basic operations such as:
+Disaster Recovery
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+Learned to manage AWS resources effectively using both the Console and CLI.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
