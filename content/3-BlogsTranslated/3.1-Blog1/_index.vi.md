@@ -1,10 +1,11 @@
 ---
 title: "Blog 1"
-date: "2025-09-10"
+date: 2025-09-10
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
@@ -167,7 +168,6 @@ Matheus Guimaraes
 
 Matheus Guimaraes (@codingmatheus) là chuyên gia về .NET và microservices, international keynote speaker, và Developer Advocate tại AWS. Với hơn 25 năm trong lĩnh vực công nghệ, anh đã đảm nhận nhiều vai trò khác nhau — từ junior game programmer đến CTO và startup founder. Matheus đã giúp nhiều công ty ở mọi quy mô modernize và scale hệ thống của họ, dẫn dắt digital transformations và thiết kế cloud-native 
 architectures. Hiện tại, anh chia sẻ kiến thức của mình trên toàn cầu thông qua các buổi talks, blogs, và videos, với niềm đam mê giúp người khác phát triển trong ngành. Ngoài công nghệ, anh còn là gamer, swimmer, musician, và tin vào sức mạnh của sự giao thoa giữa creativity và code.
-
 
 
 

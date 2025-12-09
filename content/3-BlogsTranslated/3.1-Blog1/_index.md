@@ -9,118 +9,146 @@ pre: " <b> 3.1. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+Getting started
+The first thing is to make sure that you have access to the Nova Canvas model through the usual means. Head to the Amazon Bedrock console, choose Model access and enable Amazon Nova Canvas for your account making sure that you select the appropriate regions for your workloads. If you already have access and have been using Nova Canvas, you can start using the new features immediately as they’re automatically available to you.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Virtual try-on
+The first exciting new feature is virtual try-on. With this, you can upload two pictures and ask Amazon Nova Canvas to put them together with realistic results. These could be pictures of apparel, accessories, home furnishings, and any other products including clothing. For example, you can provide the picture of a human as the source image and the picture of a garment as the reference image, and Amazon Nova Canvas will create a new image with that same person wearing the garment. Let’s try this out!
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+My starting point is to select two images. I picked one of myself in a pose that I think would work well for a clothes swap and a picture of an AWS-branded hoodie.
 
----
+Matheus and AWS-branded hoodie
 
-## Architecture Guidance
+Note that Nova Canvas accepts images containing a maximum of 4.1M pixels – the equivalent of 2,048 x 2,048 – so be sure to scale your images to fit these constraints if necessary. Also, if you’d like to run the Python code featured in this article, ensure you have Python 3.9 or later installed as well as the Python packages boto3 and pillow.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+To apply the hoodie to my photo, I use the Amazon Bedrock Runtime invoke API. You can find full details on the request and response structures for this API in the Amazon Nova User Guide. The code is straightforward, requiring only a few inference parameters. I use the new taskType of "VIRTUAL_TRY_ON". I then specify the desired settings, including both the source image and reference image, using the virtualTryOnParams object to set a few required parameters. Note that both images must be converted to Base64 strings.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+import base64
 
-**The solution architecture is now as follows:**
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+def load_image_as_base64(image_path): 
+   """Helper function for preparing image data."""
+   with open(image_path, "rb") as image_file:
+      return base64.b64encode(image_file.read()).decode("utf-8")
 
----
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+inference_params = {
+   "taskType": "VIRTUAL_TRY_ON",
+   "virtualTryOnParams": {
+      "sourceImage": load_image_as_base64("person.png"),
+      "referenceImage": load_image_as_base64("aws-hoodie.jpg"),
+      "maskType": "GARMENT",
+      "garmentBasedMask": {"garmentClass": "UPPER_BODY"}
+   }
+}
+Python
+Nova Canvas uses masking to manipulate images. This is a technique that allows AI image generation to focus on specific areas or regions of an image while preserving others, similar to using painter’s tape to protect areas you don’t want to paint.
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+You can use three different masking modes, which you can choose by setting maskType to the correct value. In this case, I’m using "GARMENT", which requires me to specify which part of the body I want to be masked. I’m using "UPPER_BODY" , but you can use others such as "LOWER_BODY", "FULL_BODY", or "FOOTWEAR" if you want to specifically target the feet. Refer to the documentation for a full list of options.
 
----
+I then call the invoke API, passing in these inference arguments and saving the generated image to disk.
 
-## Technology Choices and Communication Scope
+# Note: The inference_params variable from above is referenced below.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+import base64
+import io
+import json
 
----
+import boto3
+from PIL import Image
 
-## The Pub/Sub Hub
+# Create the Bedrock Runtime client.
+bedrock = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+# Prepare the invocation payload.
+body_json = json.dumps(inference_params, indent=2)
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+# Invoke Nova Canvas.
+response = bedrock.invoke_model(
+   body=body_json,
+   modelId="amazon.nova-canvas-v1:0",
+   accept="application/json",
+   contentType="application/json"
+)
 
----
+# Extract the images from the response.
+response_body_json = json.loads(response.get("body").read())
+images = response_body_json.get("images", [])
 
-## Core Microservice
+# Check for errors.
+if response_body_json.get("error"):
+   print(response_body_json.get("error"))
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+# Decode each image from Base64 and save as a PNG file.
+for index, image_base64 in enumerate(images):
+   image_bytes = base64.b64decode(image_base64)
+   image_buffer = io.BytesIO(image_bytes)
+   image = Image.open(image_buffer)
+   image.save(f"image_{index}.png")
+Python
+I get a very exciting result!
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+Matheus wearing AWS-branded hoodie
 
----
+And just like that, I’m the proud wearer of an AWS-branded hoodie!
 
-## Front Door Microservice
+In addition to the "GARMENT" mask type, you can also use the "PROMPT" or "IMAGE" masks. With "PROMPT", you also provide the source and reference images, however, you provide a natural language prompt to specify which part of the source image you’d like to be replaced. This is similar to how the "INPAINTING" and "OUTPAINTING" tasks work in Nova Canvas. If you want to use your own image mask, then you choose the "IMAGE" mask type and provide a black-and-white image to be used as mask, where black indicates the pixels that you want to be replaced on the source image, and white the ones you want to preserve.
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+This capability is specifically useful for retailers. They can use it to help their customers make better purchasing decisions by seeing how products look before buying.
 
----
+Using style options
+I’ve always wondered what I would look like as an anime superhero. Previously, I could use Nova Canvas to manipulate an image of myself, but I would have to rely on my good prompt engineering skills to get it right. Now, Nova Canvas comes with pre-trained styles that you can apply to your images to get high-quality results that follow the artistic style of your choice. There are eight available styles including 3D animated family film, design sketch, flat vector illustration, graphic novel, maximalism, midcentury retro, photorealism, and soft digital painting.
 
-## Staging ER7 Microservice
+Applying them is as straightforward as passing in an extra parameter to the Nova Canvas API. Let’s try an example.
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+I want to generate an image of an AWS superhero using the 3D animated family film style. To do this, I specify a taskType of "TEXT_IMAGE" and a textToImageParams object containing two parameters: text and style. The text parameter contains the prompt describing the image I want to create which in this case is “a superhero in a yellow outfit with a big AWS logo and a cape.” The style parameter specifies one of the predefined style values. I’m using "3D_ANIMATED_FAMILY_FILM" here, but you can find the full list in the Nova Canvas User Guide.
 
----
+inference_params = {
+   "taskType": "TEXT_IMAGE",
+   "textToImageParams": {
+      "text": "a superhero in a yellow outfit with a big AWS logo and a cape.",
+      "style": "3D_ANIMATED_FAMILY_FILM",
+   },
+   "imageGenerationConfig": {
+      "width": 1280,
+      "height": 720,
+      "seed": 321
+   }
+}
+Python
+Then, I call the invoke API just as I did in the previous example. (The code has been omitted here for brevity.) And the result? Well, I’ll let you judge for yourself, but I have to say I’m quite pleased with the AWS superhero wearing my favorite color following the 3D animated family film style exactly as I envisioned.
 
-## New Features in the Solution
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+
+What’s really cool is that I can keep my code and prompt exactly the same and only change the value of the style attribute to generate an image in a completely different style. Let’s try this out. I set style to PHOTOREALISM.
+
+inference_params = { 
+   "taskType": "TEXT_IMAGE", 
+   "textToImageParams": { 
+      "text": "a superhero in a yellow outfit with a big AWS logo and a cape.",
+      "style": "PHOTOREALISM",
+   },
+   "imageGenerationConfig": {
+      "width": 1280,
+      "height": 720,
+      "seed": 7
+   }
+}
+Python
+And the result is impressive! A photorealistic superhero exactly as I described, which is a far departure from the previous generated cartoon and all it took was changing one line of code.
+
+
+
+Things to know
+Availability – Virtual try-on and style options are available in Amazon Nova Canvas in the US East (N. Virginia), Asia Pacific (Tokyo), and Europe (Ireland). Current users of Amazon Nova Canvas can immediately use these capabilities without migrating to a new model.
+
+Pricing – See the Amazon Bedrock pricing page for details on costs.
+
+For a preview of virtual try-on of garments, you can visit nova.amazon.com where you can upload an image of a person and a garment to visualize different clothing combinations.
+
+If you are ready to get started, please check out the Nova Canvas User Guide or visit the AWS Console.
+
+Matheus Guimaraes | @codingmatheus
+Matheus Guimaraes
+Matheus Guimaraes
+Matheus Guimaraes (@codingmatheus) is a digital transformation specialist focused on AI adoption and microservices architecture. An international keynote speaker with over 20 years in tech, he’s worn many hats: from junior game programmer to CTO and tech co-founder. Matheus has helped companies of all sizes modernize and scale their systems, leading transformation programs and designing cloud-native, AI-ready architectures. Today, he shares his expertise globally through talks, blogs, and videos, passionate about helping others grow in the industry. Outside his professional life, he’s a gamer, swimmer, musician, and firm believer in the powerful intersection of creativity and technology.

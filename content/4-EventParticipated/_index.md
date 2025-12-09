@@ -15,8 +15,7 @@ Below is a summary of the events I attended:
 
 ### [Event 1](4.1-Event1/)
 
-&emsp;**Event Name:** “GenAI & Bedrock AI Services Workshop”  
-&emsp;**Time:** 19:30 – October 16, 2025  
+&emsp;**Event Name:** “GenAI & Bedrock AI Services Workshop”   
 &emsp;**Location:** 26th Floor, Bitexco Financial Tower, No. 02 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City  
 &emsp;**Role:** Attendee  
 

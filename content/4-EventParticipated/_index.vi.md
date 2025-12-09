@@ -16,7 +16,6 @@ Dưới đây là tổng quan các sự kiện mà em đã tham gia:
 ### [Sự kiện 1](4.1-Event1/)
 
 &emsp;**Tên sự kiện:** “GenAI & Bedrock AI Services Workshop”  
-&emsp;**Thời gian:** 8:30 – ngày 16/10/2025  
 &emsp;**Hình thức:** Tầng 26, Tòa nhà Bitexco Financial Tower, số 02 đường Hàm Nghi, phường Bến Nghé, TP. Hồ Chí Minh    
 &emsp;**Vai trò:** Người tham dự  
 

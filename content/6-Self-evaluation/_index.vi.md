@@ -1,5 +1,5 @@
 ---
-title: "Self-Evaluation"
+title: "Tự đánh giá"
 date: 2025-09-10
 weight: 6
 chapter: false
@@ -7,38 +7,36 @@ pre: " <b> 6. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your official report, including this warning.
+⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-During my internship at **AMAZON WEB SERVICES VIETNAM COMPANY LIMITED (CÔNG TY TNHH AMAZON WEB SERVICES VIỆT NAM)** from **September 8, 2025** to **December 9, 2025**, I had the opportunity to experience a highly professional, dynamic, and practical working environment.  
-Throughout this period, I participated in the project **“Digital Transformation for Mini-Market on AWS”**, which involved designing system architecture, deploying a 3-tier model, applying cloud services such as Elastic Beanstalk, RDS, S3, CloudFront, IAM, and exploring CI/CD mechanisms.  
-Through the project, I significantly improved my skills in **analysis, report writing, and teamwork.**
+Trong suốt thời gian thực tập tại **CÔNG TY TNHH AMAZON WEB SERVICES VIỆT NAM – AMAZON WEB SERVICES VIETNAM COMPANY LIMITED** từ **08/09/2025** đến **09/12/2025**, tôi đã có cơ hội tiếp cận môi trường làm việc chuyên nghiệp, năng động và mang tính thực tiễn cao.  
+Trong thời gian này, tôi tham gia vào **dự án Chuyển đổi số cho Mini-Market trên nền tảng AWS**, bao gồm thiết kế kiến trúc, triển khai mô hình 3-tier, áp dụng các dịch vụ cloud như Elastic Beanstalk, RDS, S3, CloudFront, IAM, và tìm hiểu cơ chế CI/CD.Qua dự án, tôi cải thiện rõ rệt kỹ năng **phân tích, viết báo cáo, và làm việc nhóm.**
 
-Regarding my working attitude, I always strived to complete assigned tasks well, follow mentor instructions, proactively communicate when encountering difficulties, and continuously learn to improve my performance.
+Về tác phong làm việc, tôi luôn cố gắng hoàn thành tốt nhiệm vụ được giao, tuân thủ hướng dẫn từ mentor, chủ động trao đổi khi gặp khó khăn và tích cực học hỏi để nâng cao hiệu quả công việc.
 
-Below is my self-evaluation based on important criteria during the internship:
+Dưới đây là phần tự đánh giá của tôi dựa trên các tiêu chí quan trọng trong quá trình thực tập:
 
-| No. | Criteria                              | Description                                                                                      | Good | Fair | Average |
-| --- | ------------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | -------- |
-| 1   | **Professional knowledge & skills**   | Understanding the field, applying knowledge in practice, tool usage, work quality                | ☐    | ✅   | ☐        |
-| 2   | **Ability to learn**                  | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅   | ☐        |
-| 3   | **Proactiveness**                     | Ability to self-study, take initiative without waiting for instructions                         | ☐    | ✅   | ☐        |
-| 4   | **Sense of responsibility**           | Completing tasks on time and ensuring work quality                                               | ☐    | ✅   | ☐        |
-| 5   | **Discipline**                        | Compliance with working hours, rules, and procedures                                             | ☐    | ✅   | ☐        |
-| 6   | **Growth mindset**                    | Willingness to receive feedback and improve                                                      | ☐    | ✅   | ☐        |
-| 7   | **Communication**                     | Presenting ideas clearly and reporting effectively                                                | ☐    | ✅   | ☐        |
-| 8   | **Teamwork**                          | Collaborating effectively with colleagues and contributing to the team                           | ☐    | ✅   | ☐        |
-| 9   | **Professional behavior**             | Respecting colleagues, partners, and the working environment                                     | ☐    | ✅   | ☐        |
-| 10  | **Problem-solving skills**            | Identifying issues, proposing solutions, and demonstrating creativity                            | ☐    | ✅   | ☐        |
-| 11  | **Contribution to the project/team**  | Work efficiency, improvement suggestions, and recognition from team members                      | ☐    | ✅   | ☐        |
-| 12  | **Overall assessment**                | General evaluation of the entire internship period                                               | ☐    | ✅   | ☐        |
+| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
+| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
+| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ☐   | ✅   | ☐          |
+| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
+| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ☐   | ✅   | ☐          |
+| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ☐   | ✅   | ☐          |
+| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ✅   | ☐          |
+| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
+| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
+| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ☐   | ✅   | ☐          |
+| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ☐   | ✅   | ☐          |
+| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
+| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ☐   | ✅   | ☐          |
+| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ☐   | ✅   | ☐          |
 
----
 
-### Areas for Improvement
+### Cần cải thiện
 
-- Improve discipline, especially in time management and adhering to company procedures.
-    
-- Enhance problem-solving skills by analyzing root causes more thoroughly before proposing solutions.
-    
-- Strengthen communication skills, particularly in professional discussions, requirement clarification, feedback exchange, and handling situations effectively.
+- Nâng cao tính kỷ luật, đặc biệt trong thời gian biểu và tuân thủ quy trình công ty.
+
+- Cải thiện tư duy giải quyết vấn đề, học cách phân tích nguyên nhân sâu hơn trước khi đưa ra hướng xử lý.
+
+- Rèn luyện kỹ năng giao tiếp, nhất là giao tiếp trong công việc, trao đổi yêu cầu, phản hồi và xử lý tình huống. (chuyển sang tiếng anh giúp tui)
